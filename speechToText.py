@@ -1,5 +1,6 @@
 import json
 import os
+import wave
 from datetime import datetime
 import pyaudio
 from vosk import Model, KaldiRecognizer
