@@ -4,6 +4,7 @@ import json
 from vosk import Model, KaldiRecognizer
 import wave
 
+# comment to retest code
 from speechToText import transcribe_file
 
 
