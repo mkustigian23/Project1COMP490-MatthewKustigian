@@ -27,7 +27,7 @@ jobs:
             libportaudio2 \
             libportaudiocpp0 \
             unzip \
-            wget
+            wget \
             ffmpeg
       - name: Install Python dependencies
         run: |
