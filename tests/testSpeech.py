@@ -5,14 +5,14 @@ from speechToText import transcribe_file
 
 @pytest.fixture(scope="session")
 def model_path():
-    path = "vosk-model-small-en-us-0.15"
+    path = "../vosk-model-small-en-us-0.15"
     if not os.path.exists(path):
         pytest.skip(f"Model folder missing: {path}")
     return path
 
 
 def test_transcribe_known_audio(model_path):
-    audio_file = "sample_audio.wav"
+    audio_file = "../sample_audio.wav"
 
     assert os.path.exists(audio_file), f"Audio file not found: {audio_file}"
 
