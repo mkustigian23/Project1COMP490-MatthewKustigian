@@ -47,7 +47,11 @@ jobs:
             --statistics \
             --max-complexity=12 \
             --max-line-length=127 \
-
+      - name: Create .env file from GitHub Secrets
+        run: |
+          echo "SERVER_URL=${{ secrets.SERVER_URL }}" > .env
+          echo "EMAIL=${{ secrets.EMAIL }}"          >> .env
+          echo "PASSWORD=${{ secrets.PASSWORD }}"    >> .env
       - name: Run unit tests
         run: |
           export PYTHONPATH=$PWD:$PYTHONPATH
