@@ -43,15 +43,15 @@ def test_book_and_conflict(setup):
     assert len(rooms) > 0, "No available rooms found"
     room_id = rooms[0]["id"]
 
-    # Use a clearly future time (important for CI and to avoid race conditions)
-    now = datetime.utcnow()  # or datetime.now() — try utc if server uses UTC
+    # Use a clearly future time
+    now = datetime.now()
     start_time = (now + timedelta(minutes=30)).strftime("%Y-%m-%d %I:%M %p")
     end_time = (now + timedelta(minutes=45)).strftime("%Y-%m-%d %I:%M %p")
 
     # First booking should succeed
     booking = book_room(server_url, token, room_id, start_time, end_time)
 
-    # The real server returns {'message': '...'} — NOT an id
+
     assert isinstance(booking, dict), "Booking response should be a dict"
     assert "message" in booking, "Booking should return a message"
     assert "successfully" in booking["message"].lower(), "Booking message should indicate success"
@@ -60,7 +60,7 @@ def test_book_and_conflict(setup):
     with pytest.raises(Exception) as exc_info:
         book_room(server_url, token, room_id, start_time, end_time)
 
-    # Optional: check that the exception is a 400 or conflict-related
+    #Check that the exception is a 400 or conflict-related
     assert "400" in str(exc_info.value) or "conflict" in str(exc_info.value).lower() or "already" in str(
         exc_info.value).lower(), \
         f"Expected conflict error, got: {exc_info.value}"

@@ -72,14 +72,14 @@ def cancel_booking(server_url, token, booking_id):
     response = requests.delete(server_url + endpoint, headers=headers)
 
     print(f"Status code: {response.status_code}")
-    print(f"Response text: {response.text}")  # ← This is the key line
+    print(f"Response text: {response.text}")
 
     if response.status_code == 204:
         return True
     else:
         # Don't raise yet – let us see the message
         print("Cancel failed with message above")
-        response.raise_for_status()  # optional – comment out temporarily if you want to continue
+        response.raise_for_status()
         return False
 
 def cancel_all_bookings(server_url, token):
@@ -100,7 +100,7 @@ def cancel_all_bookings(server_url, token):
 
     # Step 2: Cancel each one
     for booking in my_bookings:
-        booking_id = booking.get('id')  # or 'booking_id' if different key
+        booking_id = booking.get('id')
 
         if not booking_id:
             results.append((None, False, "No ID found in booking data"))
@@ -130,7 +130,7 @@ def main():
     my_bookings = get_my_bookings(server_url, token)
     print("Current bookings:", my_bookings)
 
-    # Cancel all
+    # Cancel ALL ROOM BOOKINGS TO LET CLASSMATES HAVE SOME
     # cancel_results = cancel_all_bookings(server_url, token)
     # print("Cancel all results:", cancel_results)
 
@@ -140,14 +140,14 @@ def main():
 
     # Pick first available room ID (assume at least one exists)
     if available_rooms:
-        room_id = available_rooms[2]["id"]  # Adjust based on actual response structure
+        room_id = available_rooms[2]["id"]
     else:
         raise ValueError("No available rooms")
 
     # Prepare 15-minute reservation times (future time)
     now = datetime.now()
-    start_time = (now + timedelta(hours=8, minutes=120)).strftime("%Y-%m-%d %I:%M %p")  # 5 min from now
-    end_time = (now + timedelta(hours=8, minutes=135)).strftime("%Y-%m-%d %I:%M %p")   # 15 min duration
+    start_time = (now + timedelta(hours=8, minutes=120)).strftime("%Y-%m-%d %I:%M %p")
+    end_time = (now + timedelta(hours=8, minutes=135)).strftime("%Y-%m-%d %I:%M %p")
 
     booking = book_room(server_url, token, room_id, start_time, end_time)
     print("Booking:", booking)  # will show {'message': '...'}
@@ -166,12 +166,10 @@ def main():
         if booking_id is not None:
             print(f"New booking ID: {booking_id}")
 
-            # Now you can cancel it (or do whatever)
-           #canceled = cancel_booking(server_url, token, booking_id)
-            #print("Canceled:", canceled)
+            # canceled = cancel_booking(server_url, token, booking_id) # COMMENTED OUT BUT THIS WILL CANCEL A BOOKING
+            # print("Canceled:", canceled)
         else:
             print("No 'id' key in the latest booking. Full latest booking:", latest_booking)
-            # You can inspect the keys here and change 'id' to whatever the actual field is (e.g. 'booking_id', 'pk')
     else:
         print("No bookings found after creating one – check if booking really succeeded")
 
