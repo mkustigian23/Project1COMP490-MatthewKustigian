@@ -49,4 +49,6 @@ jobs:
             --max-line-length=127 \
             --exit-zero
       - name: Run unit tests
-        run: pytest tests -v --tb=short
+        run: |
+          export PYTHONPATH=$PWD:$PYTHONPATH
+          pytest tests -v --tb=short
