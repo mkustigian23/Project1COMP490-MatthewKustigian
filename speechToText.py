@@ -9,8 +9,10 @@ from vosk import Model, KaldiRecognizer
 def get_recognizer(model_path: str, sample_rate: int = 16000) -> KaldiRecognizer:
     """Create and configure Vosk recognizer."""
     if not os.path.exists(model_path):
-        raise FileNotFoundError(f"Vosk model not found at: {model_path}\n"
-                                "Download from: https://alphacephei.com/vosk/models")
+        raise FileNotFoundError(
+            f"Vosk model not found at: {model_path}\n"
+            "Download from: https://alphacephei.com/vosk/models"
+        )
 
     model = Model(model_path)
     recognizer = KaldiRecognizer(model, sample_rate)
@@ -37,7 +39,7 @@ def transcribe_file(file_path: str, model_path: str) -> str:
         raise ValueError("Audio must be mono 16-bit PCM")
 
     sample_rate = wf.getframerate()
-    if sample_rate not in [8000, 16000,22050, 32000, 44100, 48000]:
+    if sample_rate not in [8000, 16000, 22050, 32000, 44100, 48000]:
         raise ValueError(f"Unsupported sample rate: {sample_rate} Hz")
 
     recognizer = KaldiRecognizer(model, sample_rate)
@@ -75,7 +77,7 @@ def listen_and_transcribe(model_path: str, sample_rate: int = 16000):
         channels=1,
         rate=sample_rate,
         input=True,
-        frames_per_buffer=8192  # larger buffer → fewer calls, but still low latency
+        frames_per_buffer=8192,  # larger buffer → fewer calls, but still low latency
     )
 
     print("\n🎤 Listening... (Speak into the microphone.)")
@@ -86,7 +88,9 @@ def listen_and_transcribe(model_path: str, sample_rate: int = 16000):
     output_file = f"transcription_{timestamp}.txt"
 
     with open(output_file, "w", encoding="utf-8") as f:
-        f.write(f"Transcription started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+        f.write(
+            f"Transcription started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+        )
 
         stream.start_stream()
 

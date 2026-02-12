@@ -27,6 +27,10 @@ def test_transcribe_known_audio(model_path):
     assert len(text) > 3, "No transcription produced"
 
     # This is what the file was "transcribed" to.
-    expected_phrases = ["hello", "hello this is", "he low this in a short sample audio file for transcription testing"]
+    expected_phrases = [
+        "hello",
+        "hello this is",
+        "he low this in a short sample audio file for transcription testing",
+    ]
     found = any(phrase in text for phrase in expected_phrases)
     assert found, f"None of {expected_phrases} found in: {text!r}"
