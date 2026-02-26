@@ -1,9 +1,11 @@
 vosk
 pyaudio>=0.2.11
 requests
-python-dotenv # may have to make it python-dotenv>=1.0.0
+python-dotenv
 pytest
 langchain
-langchain-openai>=0.1.0
+langchain-ollama
+langgraph
+langchain-community
 pyttsx3>=2.90
 speechrecognition # added now
