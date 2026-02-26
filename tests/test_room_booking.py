@@ -15,7 +15,7 @@ def setup():
     if not all([server_url, email, password]):
         pytest.fail("Missing SERVER_URL, EMAIL or PASSWORD in .env")
 
-    token = login(server_url, email, password)
+    token = login()
     assert token is not None and isinstance(token, str), "Login failed - no token returned"
 
     yield server_url, token
