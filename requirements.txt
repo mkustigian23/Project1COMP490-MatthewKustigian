@@ -6,3 +6,4 @@ pytest
 langchain
 langchain-openai>=0.1.0
 pyttsx3>=2.90
+speechrecognition
