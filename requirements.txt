@@ -1,5 +1,8 @@
 vosk
 pyaudio>=0.2.11
 requests
-python-dotenv
+python-dotenv # may have to make it python-dotenv>=1.0.0
 pytest
+langchain
+langchain-openai>=0.1.0
+pyttsx3>=2.90
