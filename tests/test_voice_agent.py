@@ -12,10 +12,6 @@ from voice_agent import (
 )
 
 
-# ────────────────────────────────────────────────
-# Fixtures
-# ────────────────────────────────────────────────
-
 @pytest.fixture
 def mock_agent_response():
     """Typical structure returned by a LangGraph-style ReAct agent"""
