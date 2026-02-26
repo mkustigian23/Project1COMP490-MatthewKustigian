@@ -40,11 +40,19 @@ agent = create_agent(
 )
 
 # speech setup
-engine = pyttsx3.init()
+_engine = None
+
+def get_tts_engine():
+    global _engine
+    if _engine is None:
+        import pyttsx3
+        _engine = pyttsx3.init()
+    return _engine
 recognizer = sr.Recognizer()
 
 def speak(text: str):
     print("\nSpeaking:", text)
+    engine = get_tts_engine()
     engine.say(text)
     engine.runAndWait()
 
