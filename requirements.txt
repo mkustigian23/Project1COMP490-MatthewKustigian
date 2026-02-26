@@ -7,5 +7,6 @@ langchain
 langchain-ollama
 langgraph
 langchain-community
-pyttsx3>=2.90
-speechrecognition # added now
+pyttsx3>=2.90 # for my macbook
+espeak-ng-python # for linux/github actions
+speechrecognition
