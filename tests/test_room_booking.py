@@ -4,6 +4,16 @@ from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from room_booking_client import login, get_available_rooms, book_room
 
+@pytest.fixture(scope="session")  # session = reuse token across all tests
+def auth_token():
+    """Get a valid auth token for API calls."""
+    token = login()  # assuming your current login() takes no args
+    if not token:
+        pytest.fail("Login failed - check SERVER_URL, EMAIL, PASSWORD in secrets/env")
+    assert isinstance(token, str)
+    assert len(token) > 20  # rough check
+    return token
+
 
 @pytest.fixture(scope="module")
 def setup():
