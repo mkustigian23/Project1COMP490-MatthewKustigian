@@ -1,3 +1,5 @@
+import os
+
 import pytest
 from unittest.mock import patch, MagicMock
 
@@ -8,7 +10,6 @@ from voice_agent import (
     llm,
     tools,
     speak,  # for testing the speak function
-    sr,  # speech_recognition
 )
 
 
@@ -90,15 +91,17 @@ def test_speak_calls_engine_methods(mock_init):
     mock_engine = MagicMock()
     mock_init.return_value = mock_engine
 
-    speak("Hello, this is a test")
+    speak("Hello, this is a test", _test_force=True)  # ← force speak in test
 
     mock_engine.say.assert_called_once_with("Hello, this is a test")
     mock_engine.runAndWait.assert_called_once()
 
 
 def test_tools_list_is_not_empty():
+    """Basic check that tools list contains expected items"""
     assert len(tools) >= 3
-    assert any(t.__name__ == "get_current_datetime" for t in tools)
-    assert any(t.__name__ == "list_available_rooms_now_or_soon" for t in tools)
+    tool_names = [t.name for t in tools]
+    assert "get_current_datetime" in tool_names
+    assert "list_available_rooms_now_or_soon" in tool_names
 
 

@@ -9,3 +9,4 @@ langgraph
 langchain-community
 pyttsx3>=2.90 # for my macbook
 speechrecognition
+langchain-core
