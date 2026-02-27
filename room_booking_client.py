@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
 from langchain_core.tools import tool
 
-load_dotenv()
+load_dotenv() # loads .env file
 
 SERVER_URL = os.getenv("SERVER_URL")
 EMAIL = os.getenv("EMAIL")

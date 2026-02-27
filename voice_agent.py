@@ -1,18 +1,12 @@
-# voice_agent.py
-# Corrected: main loop guarded with if __name__ == "__main__" → safe for pytest / CI
 
 import os
 from datetime import datetime
 from dotenv import load_dotenv
 
-# ────────────────────────────────────────────────
-# LangChain / LangGraph imports
-# ────────────────────────────────────────────────
 from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
 
-# Your tools
 from room_booking_client import (
     get_current_datetime,
     get_my_bookings_today,
@@ -22,18 +16,14 @@ from room_booking_client import (
 
 load_dotenv()
 
-# ────────────────────────────────────────────────
-# LLM – local Ollama (created at import time – safe, no hardware)
-# ────────────────────────────────────────────────
+
 llm = ChatOllama(
     model="ibm/granite4:1b-h",
     temperature=0.1,
     base_url="http://localhost:11434"
 )
 
-# ────────────────────────────────────────────────
-# Tools
-# ────────────────────────────────────────────────
+
 tools = [
     get_current_datetime,
     get_my_bookings_today,
@@ -41,14 +31,10 @@ tools = [
     list_available_rooms_now_or_soon,
 ]
 
-# ────────────────────────────────────────────────
-# Agent (created at import time – safe)
-# ────────────────────────────────────────────────
+
 agent = create_agent(llm, tools)
 
-# ────────────────────────────────────────────────
-# Lazy speech recognition & TTS
-# ────────────────────────────────────────────────
+
 
 _recognizer = None
 def get_recognizer():
@@ -94,10 +80,7 @@ def speak(text: str, _test_force: bool = False):
         print(f"TTS failed: {e}")
 
 
-# ────────────────────────────────────────────────
-# MAIN PROGRAM – only runs when script is executed directly
-# Prevents pytest from executing the loop during import/collection
-# ────────────────────────────────────────────────
+
 
 if __name__ == "__main__":
     print("Voice agent started (updated LangChain/LangGraph + local Ollama).")
@@ -114,8 +97,8 @@ if __name__ == "__main__":
         try:
             # CI/test fallback – never reached in pytest
             if 'CI' in os.environ or 'GITHUB_ACTIONS' in os.environ or 'PYTEST_CURRENT_TEST' in os.environ:
-                text = ""  # or raise SkipTest / exit gracefully – no input() in CI
-                break      # exit loop immediately in automated env
+                text = ""
+                break
             else:
                 recognizer = get_recognizer()
                 if recognizer is None:

@@ -65,7 +65,7 @@ def test_book_and_conflict(setup):
     room_id = rooms[0]["id"]
 
     # Use a much safer future window
-    now = datetime.utcnow()  # or datetime.now() — UTC often helps with server timezone
+    now = datetime.utcnow()  # or datetime.now()
     start_time = (now + timedelta(minutes=60)).strftime("%Y-%m-%d %I:%M %p")  # 1 hour ahead
     end_time = (now + timedelta(minutes=75)).strftime("%Y-%m-%d %I:%M %p")
 
@@ -84,6 +84,6 @@ def test_book_and_conflict(setup):
     with pytest.raises(Exception) as exc:
         book_room(server_url, token, room_id, start_time, end_time)
 
-    # Optional: make the assertion more specific
+    # make the assertion more specific
     error_text = str(exc.value)
     assert "400" in error_text, f"Expected 400 conflict error, got: {error_text}"

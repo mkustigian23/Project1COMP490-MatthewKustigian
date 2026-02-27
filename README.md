@@ -2,29 +2,39 @@
 
 This repository contains two main components developed for COMP490:
 
-1. A **speech-to-text transcription tool** using audio processing and transcription APIs
-2. A **Python client** for interacting with a Room Booking API (including authentication, room listing, booking, and cancellation)
+The project has evolved through sprints:
+- **Sprint 1**: Basic speech-to-text transcription from audio files/live mic
+- **Sprint 2**: Room booking API client with authentication and CRUD operations
+- **Sprint 3**: Voice-enabled agent using LangChain + Ollama (local LLM) to query reservations naturally (read-only for now)
 
 ## Features
 
-### Speech-to-Text Transcription (Original Project)
-- Converts audio files to text using speech recognition
-- Supports various audio formats
-- Includes linting and unit testing
+### Speech-to-Text Transcription
+- Supports live microphone input and audio files
+- Uses Google Speech Recognition (free tier)
+- Handles ambient noise adjustment and timeouts
+- Basic error handling and retry logic
 
-### Room Booking Client
+### Room Booking Client & Voice Agent
 - Authenticate with email/password
 - List currently available meeting rooms
-- Book a room for a specified time slot (15-minute duration recommended)
+- Book a room for a specified time slot
 - View personal booking history
 - Cancel upcoming bookings
-- Demonstrates conflict detection (attempting to book the same room/time twice fails)
+- Voice interface (Sprint 3): Ask natural-language questions like  
+  "Do I have any bookings today?"  
+  "What rooms are available right now?"  
+  "When is my reservation for Room A?"
+- Uses local Ollama LLM (e.g. granite-1b) for offline/privacy-focused operation
 
 ## Setup
 
 ### Prerequisites
 - Python 3.10+
 - Git
+- (Optional for voice mode) Ollama installed and running locally with a model pulled (e.g. `ollama pull ibm/granite4:1b-h`)
+- Microphone for voice input (optional)
+
 
 ### Installation
 
