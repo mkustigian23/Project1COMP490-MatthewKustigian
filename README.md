@@ -54,4 +54,4 @@ SERVER_URL
 EMAIL
 PASSWORD
 
-These secrets are used to create the .env file during CI runs.
+These secrets are created using python-dotenv and automatically loaded in, to create the .env file during CI runs.
