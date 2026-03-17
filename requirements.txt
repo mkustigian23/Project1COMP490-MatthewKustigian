@@ -1,3 +1,4 @@
+# ── Sprint 1 / 2 / 3 (existing) ─────────────────────────────────────────────
 vosk
 pyaudio>=0.2.11
 requests
@@ -7,6 +8,9 @@ langchain
 langchain-ollama
 langgraph
 langchain-community
-pyttsx3>=2.90 # for my macbook
+pyttsx3>=2.90
 speechrecognition
 langchain-core
+
+# ── Sprint 4 (new) ───────────────────────────────────────────────────────────
+textual>=0.60.0
