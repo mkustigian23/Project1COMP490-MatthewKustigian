@@ -1,4 +1,4 @@
-name: CI – Lint + Tests
+name: CI – Lint + Tests + Deploy
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
     branches: [ main ]
 
 jobs:
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 1: Lint, build, and run all unit tests
+  # ─────────────────────────────────────────────────────────────────────────
   build-and-test:
     runs-on: ubuntu-latest
 
@@ -28,11 +31,13 @@ jobs:
             libportaudiocpp0 \
             unzip \
             wget
+
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install flake8 pytest pytest-cov
+
       - name: Download Vosk small model
         run: |
           wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
@@ -46,13 +51,97 @@ jobs:
             --show-source \
             --statistics \
             --max-complexity=12 \
-            --max-line-length=127 \
+            --max-line-length=127
+
       - name: Create .env file from GitHub Secrets
         run: |
           echo "SERVER_URL=${{ secrets.SERVER_URL }}" > .env
-          echo "EMAIL=${{ secrets.EMAIL }}"          >> .env
-          echo "PASSWORD=${{ secrets.PASSWORD }}"    >> .env
+          echo "EMAIL=${{ secrets.EMAIL }}"           >> .env
+          echo "PASSWORD=${{ secrets.PASSWORD }}"     >> .env
+
+      - name: Seed CI test database
+        run: |
+          python create_test_db.py test_ci.sqlite3
+
       - name: Run unit tests
+        env:
+          SERVER_URL: ${{ secrets.SERVER_URL }}
         run: |
           export PYTHONPATH=$PWD:$PYTHONPATH
           pytest tests -v --tb=short
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 2: Deploy to DigitalOcean — only on push to main, only if tests pass
+  # ─────────────────────────────────────────────────────────────────────────
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DO_SSH_KEY }}" > ~/.ssh/do_deploy
+          chmod 600 ~/.ssh/do_deploy
+          ssh-keyscan -H ${{ secrets.DO_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Copy server files to droplet
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/do_deploy -o StrictHostKeyChecking=no" \
+            ./server/ \
+            ${{ secrets.DO_USER }}@${{ secrets.DO_HOST }}:/opt/room_booking_server/
+
+      - name: Start server on droplet
+        run: |
+          ssh -i ~/.ssh/do_deploy \
+              -o StrictHostKeyChecking=no \
+              ${{ secrets.DO_USER }}@${{ secrets.DO_HOST }} << 'EOF'
+            set -e
+ 
+            # Create venv if it doesn't exist yet
+            if [ ! -d /opt/room_booking_server/venv ]; then
+              python3 -m venv /opt/room_booking_server/venv
+            fi
+ 
+            cd /opt/room_booking_server
+            source venv/bin/activate
+ 
+            pip install --upgrade pip
+            pip install -r requirements.txt
+ 
+            # Apply any new Django migrations
+            python manage.py migrate --noinput
+ 
+            # Restart gunicorn (kill existing process gracefully first)
+            pkill -f gunicorn || true
+            sleep 1
+            gunicorn room_booking.wsgi:application \
+              --bind 0.0.0.0:8000 \
+              --workers 2 \
+              --daemon \
+              --log-file /var/log/gunicorn.log \
+              --access-logfile /var/log/gunicorn-access.log
+ 
+            echo "Server deployed and running."
+          EOF
+
+      - name: Set up Python 3.10 (for smoke test)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Smoke-test — verify server is reachable
+        env:
+          SERVER_URL: ${{ secrets.SERVER_URL }}
+        run: |
+          export PYTHONPATH=$PWD:$PYTHONPATH
+          pytest tests/test_database.py::TestServerConnectivity -v --tb=short
