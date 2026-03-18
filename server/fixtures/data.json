@@ -1,0 +1,648 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-12-10T13:07:54.917Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "yabesh@gmail.com",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-12-10T13:11:23.159Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Room A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-12-10T13:11:31.625Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Room B",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-12-10T13:11:47.334Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Room C",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-12-10T15:21:14.543Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "1",
+    "object_repr": "yabesh@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-12-10T15:25:06.031Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "yabesh@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-12-10T15:25:06.055Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "4",
+    "object_repr": "yabesh@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-12-10T15:25:06.071Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "3",
+    "object_repr": "yabesh@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-12-10T15:25:06.087Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "yabesh@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-12-10T15:26:00.743Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "samyabeshv@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Username\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-12-10T15:32:07.313Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "samyabeshv@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-12-10T15:32:12.982Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "admin@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-12-10T15:45:24.583Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "10",
+    "object_repr": "samyabeshv@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-12-10T15:45:24.603Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "9",
+    "object_repr": "samyabeshv@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-12-10T15:45:24.620Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "8",
+    "object_repr": "samyabeshv@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-12-10T15:45:24.637Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "7",
+    "object_repr": "samyabeshv@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-12-10T15:45:24.653Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "6",
+    "object_repr": "samyabeshv@gmail.com booked Room A from 2023-12-15 10:00:00+00:00 to 2023-12-15 12:00:00+00:00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add booking history",
+    "content_type": 6,
+    "codename": "add_bookinghistory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change booking history",
+    "content_type": 6,
+    "codename": "change_bookinghistory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete booking history",
+    "content_type": 6,
+    "codename": "delete_bookinghistory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view booking history",
+    "content_type": 6,
+    "codename": "view_bookinghistory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add meeting room",
+    "content_type": 7,
+    "codename": "add_meetingroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change meeting room",
+    "content_type": 7,
+    "codename": "change_meetingroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete meeting room",
+    "content_type": 7,
+    "codename": "delete_meetingroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view meeting room",
+    "content_type": 7,
+    "codename": "view_meetingroom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add User",
+    "content_type": 8,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change User",
+    "content_type": 8,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete User",
+    "content_type": 8,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view User",
+    "content_type": 8,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "booking",
+    "model": "bookinghistory"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "booking",
+    "model": "meetingroom"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "member",
+    "model": "customuser"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jetz5ukc74ewy3tzesc3cqon7tjbggi8",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFdXBbq0bvfQIDdStWUpLQn47_bJj3obTLvzbxViOtSwtpkDiOrizLq9NulmJ8y7YAfcbpXneu0zGPSu6IP2vStsryuh_t3UGIr2_o8mIFAfN-Tkw6J2FLuXPYgFhhwSwaNRQai6AkYc0ZnhDynRAjq8wW_BDb1:1rCML5:JwzKRut08drure_NtxLj7_e4btDSNqq6ETv-zeRr7qE",
+    "expire_date": "2023-12-24T16:07:31.318Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v6l0zh9r7g5lt8j4fcjdef2lf3m7cw40",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEwPKZ16d5vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhZnocXpd4uUHrntgO_UbrNMc1uXKcpdkQft8jpzfl4O9--gUq_f2g5DStb5hJ6djgpQeRzBcGFDml0BQFAOimejjC6WLRBkJFs0jxbF-wPBMDcK:1rCJVS:mcogzeZIMGjwUABFrSREcNaXtSUsgsh68y8Z2CBBtg8",
+    "expire_date": "2023-12-24T13:06:02.768Z"
+  }
+},
+{
+  "model": "booking.meetingroom",
+  "pk": 1,
+  "fields": {
+    "room_name": "Room A",
+    "capacity": 4,
+    "is_active": true
+  }
+},
+{
+  "model": "booking.meetingroom",
+  "pk": 2,
+  "fields": {
+    "room_name": "Room B",
+    "capacity": 10,
+    "is_active": true
+  }
+},
+{
+  "model": "booking.meetingroom",
+  "pk": 3,
+  "fields": {
+    "room_name": "Room C",
+    "capacity": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "member.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ecwCPFK5cnlVWmHrzwk5tk$zUX/TbUhkyxGopSVoo3gxloAZnUOdxkZFy5K5DSlQGk=",
+    "last_login": "2023-12-10T13:06:02.750Z",
+    "email": "admin@gmail.com",
+    "username": "admin",
+    "is_active": true,
+    "is_staff": true,
+    "is_superuser": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "member.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Uc3obuNLk55PXGqLj5EATL$UFM5RvU+DpzvnLMF9rTi7qz00zcC92DjBMvYtTWjTN4=",
+    "last_login": "2023-12-10T16:07:31.302Z",
+    "email": "samyabeshv@gmail.com",
+    "username": "yabesh",
+    "is_active": true,
+    "is_staff": false,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
