@@ -26,4 +26,4 @@ model*/
 .vscode/
 .idea/
 *.sublime-project
-*.sublime-workspace
+*.sublime-workspaceserver/venv/
