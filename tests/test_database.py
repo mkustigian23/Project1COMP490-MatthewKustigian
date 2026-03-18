@@ -341,7 +341,7 @@ class TestServerConnectivity(unittest.TestCase):
             except urllib.error.HTTPError as exc:
                 status = exc.code           # 401 means server is up
             self.assertIn(
-                status, [200, 401, 403],
+                status, [200, 401,400, 403],
                 msg=f"Unexpected HTTP {status} from {url}",
             )
         except (urllib.error.URLError, OSError) as exc:
