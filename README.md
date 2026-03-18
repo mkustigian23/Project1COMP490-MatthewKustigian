@@ -1,6 +1,6 @@
 # Project 1 - COMP490 - Matthew Kustigian
 
-Room booking capstone project at Bridgewater State University. 
+Room booking capstone project at Bridgewater State University.  
 
 ---
 
